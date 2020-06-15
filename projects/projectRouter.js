@@ -4,7 +4,7 @@ const db = require("../data/helpers/projectModel");
 
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
+router.get("/:id", (req, res, next) => {
   db.get(req.body.id)
     .then((user) => {
       res.status(200).json(user);
@@ -60,12 +60,15 @@ router.put("/:id", (req, res, next) => {
     .catch(next);
 });
 
-router.get("/projects", (res, req, next) => {
+router.get("/:id/actions", (req, res, next) => {
   db.getProjectActions(req.params.id)
     .then((project) => {
-      res.status(201).json(project);
+      res.status(200).json(project);
     })
-    .catch(next);
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error);
+    });
 });
 
 module.exports = router;

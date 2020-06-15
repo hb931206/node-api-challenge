@@ -28,7 +28,10 @@ router.post("/", (req, res, next) => {
     .then((project) => {
       res.status(201).json(project);
     })
-    .catch(next);
+    .catch((error) => {
+      console.log(error);
+      res.status(500).json(error);
+    });
 });
 
 router.delete("/:id", (req, res, next) => {
@@ -44,7 +47,7 @@ router.delete("/:id", (req, res, next) => {
 });
 
 router.put("/:id", (req, res, next) => {
-  if ((!req.body.project_id && !req.body.description) || !req.body.notes) {
+  if (!req.body.project_id && !req.body.description && !req.body.notes) {
     return res.status(400).json({ message: "You need all your info" });
   }
   const putOBJ = {
