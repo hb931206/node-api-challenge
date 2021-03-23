@@ -48,6 +48,16 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] How can we partition our application into sub-applications?
 
+Express is a node.js module. It helps us build web application and works with Json.
+
+Middleware is a stack of array of functions. It changes the request and response in an application.
+
+The Resources are the data that is manipulated when you manipulate endpoints.
+
+They can return a 200 or 201 status message. Or return customizable return messages.
+
+We use routing and express to partition our app into sub application{}
+
 ## Minimum Viable Product
 
 - [ ] Configure an _npm script_ named _"server"_ that will execute your code using _nodemon_. Make _nodemon_ be a development time dependency only, it shouldn't be deployed to production.
